@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //tìm mã sinh viên
+        var mail = "khanhtdph16635@fpt.edu.vn";
+        //kiểm tra tồn tại mã sinh viên
+        //cách 1
+        // var check_msv = /ph\d\d\d\d\d/;
+        //cách 2
+        // var check_msv = /ph\d{1,5}/;
+        //cách 4: liệt kê các ký tự hợp lệ
+        var check_msv = /p[hs][0-9]{5}/
+        console.log(check_msv.test(mail));
+        msv = mail.match(check_msv);
+        console.log(msv);
+    </script>
+</body>
+
+</html>

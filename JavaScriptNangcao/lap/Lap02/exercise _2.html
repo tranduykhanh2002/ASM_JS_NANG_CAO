@@ -1,0 +1,32 @@
+<label for="">String</label>
+<input type="text" name="" id="string">
+<br>
+<label for="">Number</label>
+<h2 id="target"></h2>
+<br>
+<button id="add">convert</button> <button id="check">Check</button>
+<h4 id="target"></h4>
+<h1 id="target2"></h1>
+<script>
+    var string = document.getElementById("string");
+    var out = document.querySelector("#target");
+    var add = document.getElementById("add");
+    var target = document.getElementById("target2");
+    var check = document.getElementById("check");
+    add.addEventListener("click", function() {
+        var numberstr = string.value.length;
+        out.innerHTML = numberstr;
+
+    });
+    //substring vs string
+
+    check.addEventListener("click", function() {
+        var ki_t = string.value.substr(0, 3);
+        if (ki_t < string.value) {
+            target.innerText = ki_t + '...';
+
+        } else {
+            target.innerText = ki_t + '.';
+        }
+    })
+</script>

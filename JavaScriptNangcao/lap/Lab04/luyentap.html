@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kiểm tra tính hợp lệ của mail</title>
+</head>
+
+<body>
+    <!--
+Phải có ký tự @
+Ký tự @ không nằm ở vị trí đầu
+Phải có ít nhất một dấu . trong địa chỉ mail
+Phải có ít nhất 1 ký tự giữa @ và dấu . cuối cùng
+Phải có ít nhất một ký tự sau dấu . cuối cùng
+Không có khoảng trắng trong địa chỉ mail
+-->
+    <script>
+        function IsInvalidEmail(the_email) {
+            var at = the_email.indexOf("@");
+            var dot = the_email.lastIndexOf(".");
+            var space = the_email.indexOf(" ");
+
+            if ((at != -1) && //có ký tự @
+                (at != 0) && //ký tự @ không nằm ở vị trí đầu
+                (dot != -1) && //có ký tự .
+                (dot > at + 1) && (dot < the_email.length - 1) //phải có ký tự nằm giữa @ và . cuối cùng
+                &&
+                (space == -1)) //không có khoẳng trắng 
+            {
+                alert("Email valid");
+                return true;
+            } else {
+                alert("Email Invalid");
+                return false;
+            }
+        }
+        var form = document.forms['myform'];
+        var u = myform["name"].value;
+        var a = myform["name_account"].value;
+        var e = myform["email"].value;
+        var ph = myform["phone"].value;
+        var pw = myform["password"].value;
+        var cf_pw = myform["password_confirmation"].value;
+        var n = myform["message"].value;
+        // var a = document.getElementById("name_account").value;
+        // var e = document.getElementById("email").value;
+        // var ph = document.getElementById("phone").value;
+        // var pw = document.getElementById("password").value;
+        // var cf_pw = document.getElementById("password_confirmation").value;
+        // var n = document.getElementById("message").value;
+
+        if (u == "") {
+            alert("Vui lòng nhập tên");
+            myform['name'].focus();
+            return false;
+        }
+        if (a == "") {
+            alert("Vui lòng nhập tên tài khoản");
+            myform['name_account'].focus();
+            return false;
+        } else if (a.match(/^\s+$/) === null) {
+            alert("Vui lòng không nhập dấu cách");
+            myform['name_account'].focus();
+        }
+        if (e == "") {
+            alert("Vui lòng nhập email");
+            myform['email'].focus();
+            return false;
+        }
+        if (ph == "") {
+            alert("Vui lòng nhập số điện thoại");
+            myform['phone'].focus();
+            return false;
+        }
+        if (pw == "") {
+            alert("Vui lòng nhập mật khẩu");
+            myform['password'].focus();
+            return false;
+        }
+        if (cf_pw == "") {
+            alert("Vui lòng xác nhận mật khẩu");
+            myform['password_confirmation'].focus();
+            return false;
+        }
+
+        alert("Cảm ơn bạn đã đăng ký!")
+
+        return true;
+        //
+        var phone = document.getElementById("phone");
+        var che = phone.value;
+        if (che == isNaN(che) || che < 0 || che > 10) {
+            alert("Không được nhập quá 10 kí tự");
+            che.focus();
+            return false;
+        }
+        return true;
+    </script>
+    <form action="#" method="POST" onsubmit="var result=
+            IsInvalidEmail(this.emailbox.value);return result;">
+        <input type="text" name="emailbox" value="" placeholder="Nhập
+                email">
+        <button type="submit" value="Submit">Submit</button>
+    </form>
+</body>
+
+</html>

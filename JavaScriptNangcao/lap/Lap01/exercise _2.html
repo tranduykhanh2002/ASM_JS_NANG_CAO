@@ -1,0 +1,25 @@
+<style>
+    #color {
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 20px;
+        width: 200px;
+    }
+</style>
+<input type="text" id="inp" value="hi">
+<h3>Input text</h3> <br>
+<div id="target"></div>
+<script>
+    var h3text = document.querySelector("h3");
+    var inp = document.querySelector("#inp");
+    inp.onkeyup = function() {
+        h3text.innerText = inp.value;
+
+    }
+    var el = document.querySelector("#target");
+    var h2 = document.createElement("h2");
+    h2.innerText = "Hello";
+    h2.setAttribute("class", "title");
+    el.appendChild(h2);
+</script>

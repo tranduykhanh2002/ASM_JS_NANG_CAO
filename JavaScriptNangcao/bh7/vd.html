@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Loading</h2>
+
+
+    <script>
+        var h2 = document.querySelector('h2');
+
+        function quatrinhHoc(totalMark, time) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    if (totalMark >= 9) {
+                        resolve(totalMark);
+                    }
+                    if (totalMark > 10) {
+                        alert("Mời nhập lại")
+
+                    } else {
+                        reject('Không đủ điều kiện sv xuất sắc');
+                    }
+
+                }, time)
+            })
+        }
+        var diemTongket = prompt("Nhập điểm tổng kết: ");
+        var timedelay = prompt("Thời gian delay: ");
+        if (diemTongket < 10) {
+            quatrinhHoc(parseInt(diemTongket), parseInt(timedelay))
+                .then(function(mark) {
+                    h2.innerText = "Đi Singapore, vì điểm tổng kết= " + mark;
+                })
+                .catch(function(err) {
+                    h2.innerText = err;
+                })
+        } else {
+            alert("Mời nhập lại")
+        }
+    </script>
+</body>
+
+</html>

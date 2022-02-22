@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function student(name, age, address, phone, birthday, subjects) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.phone = phone;
+            this.birthday = birthday;
+            this.subjects = subjects;
+        }
+
+        function studentF(name, age, address, phone, birthday, subjects) {
+            student.call(this, name, age, address, phone, birthday, subjects)
+            this.getavgscore = function() {
+                let sum = 0;
+                this.subjects.forEach(function(item) {
+                    sum = sum + item.point;
+                });
+                return sum / this.subjects.length;
+            }
+            this.changaddress = function(address) {
+                this.address = address;
+                console.log('successfully');
+            }
+        }
+        const st = new studentF('khanh', 20, 'Ha Noi', 1234, '20/11/2002', [{
+            name: 'HTML',
+            point: 8
+        }, {
+            name: 'Java',
+            point: 9
+        }]);
+        console.log(st);
+        console.log(st.getavgscore());
+        console.log(st.changaddress('Viet Nam'));
+    </script>
+</body>
+
+</html>

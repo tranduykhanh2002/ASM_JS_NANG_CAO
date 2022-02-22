@@ -1,0 +1,39 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Date</label> <br>
+    <input type="number" id="date"><br>
+    <label for="">Month</label><br>
+    <input type="number" id="month"><br>
+    <label for="">Year</label><br>
+    <input type="number" id="year"><br>
+    <button id="add">add</button>
+    <!-- </form> -->
+    <h3 id="target"></h3>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <script>
+        var month = document.getElementById("month");
+        var date = document.getElementById("date");
+        var year = document.getElementById("year");
+        var add = document.getElementById("add");
+        var target = document.querySelector("#target");
+        add.addEventListener("click", function() {
+            t_p = moment(`${year.value}-${month.value}-${date.value}`, "YYYY MM DD").format("dddd");
+            inner = t_p;
+
+            target.innerText = inner;
+        })
+    </script>
+</body>
+
+</html>

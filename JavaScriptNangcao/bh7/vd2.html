@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function assignment1() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    var asm1 = prompt("Nhập điểm asm 1: ");
+                    if (asm1 <= 10) {
+                        return resolve(parseInt(asm1));
+                    } else {
+                        alert("Mời nhập lại...")
+                        location.reload()
+
+                    }
+                }, 1000)
+            })
+        }
+
+        function assignment2() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    var asm2 = prompt("Mời nhập điểm asm2: ");
+                    if (asm2 <= 10) {
+                        return resolve(parseInt(asm2));
+                    } else {
+                        alert("Mời nhập lại...")
+                        location.reload()
+                    }
+                }, 5000)
+            })
+        }
+        Promise.all([
+                assignment1(),
+                assignment2()
+            ])
+            .then(function(result) {
+                console.log(result);
+                var avgScore = ((result[0] + result[1]) / 2)
+                alert("Điểm trung bình của bạn là: " + avgScore);
+            })
+    </script>
+</body>
+
+</html>

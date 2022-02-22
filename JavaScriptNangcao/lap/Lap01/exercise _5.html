@@ -1,0 +1,46 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Date</label> <br>
+    <input type="number" id="month"><br>
+    <label for="">Month</label><br>
+    <input type="number" id="date"><br>
+    <label for="">Year</label><br>
+    <input type="number" id="year"><br>
+    <button id="add">add</button>
+    <!-- </form> -->
+    <h3 id="target"></h3>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <script>
+        var month = document.getElementById("month");
+        var date = document.getElementById("date");
+        var year = document.getElementById("year");
+        var add = document.getElementById("add");
+        var target = document.querySelector("#target");
+        add.addEventListener("click", function() {
+                t_p = moment(`${year.value}-${month.value}-${date.value}`).format("YYYY-MM-DD");
+                t_p1 = moment(`${date.value}-${month.value}-${year.value}`).format("DD/MM/YYYY");
+                t_p2 = moment(`${date.value}-${month.value}-${year.value}`).format("DD . MM . YYYY");
+                t_p3 = moment(`${date.value}-${month.value}-${year.value}`).format("DD, MMM YYYY");
+                t_p4 = moment(`${date.value}-${month.value}-${year.value}`).format("DD, MMMM YYYY");
+                inner = t_p + "  \n  " + t_p1 + "  \n  " + t_p2 + "  \n  " + t_p3 + "  \n  " + t_p4;
+
+                target.innerText = inner;
+            })
+            // var time = moment(`${date}-${month}-${year}`).format("DD MMM YYYY");
+            // alert(time);
+            // console.log(time);
+    </script>
+</body>
+
+</html>

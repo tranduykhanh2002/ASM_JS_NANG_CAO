@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <script>
+        var sinh_vien = new Object;
+        sinh_vien.masv = 'PH1234';
+        sinh_vien.hoTen = 'Tran Van A';
+        sinh_vien.lop = 'Web16302';
+        sinh_vien.ngay_nhap_hoc = new Date(2020, 09, 25);
+        sinh_vien.diem_trung_binh = 8;
+        sinh_vien.hoc_luc = function() {
+            if (this.diem_trung_binh <= 5) {
+                console.log("Học lực yếu");
+            } else if (this.diem_trung_binh <= 7) {
+                console.log("Học lực trung bình")
+            } else if (this.diem_trung_binh <= 8) {
+                console.log("Học lục khá")
+            } else if (this.diem_trung_binh < 10) {
+                console.log("Học lực giỏi")
+            }
+        }
+        console.log(sinh_vien);
+        sinh_vien.hoc_luc();
+    </script>
+</body>
+
+</html>

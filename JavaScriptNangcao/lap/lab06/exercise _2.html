@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="target"></ul>
+
+    <script>
+        var products = [
+            "Tray van A", "Nguyen Van B", "Tran Van C"
+        ];
+        var ulElment = document.querySelector('#target');
+        new Promise(function(reslve, reject) {
+            var strContent = "";
+            products.forEach(function(val, index) {
+                // console.log(index, val);
+                li = document.createElement('li')
+                li = "<li>" + val + "</li>";
+                strContent += li
+                console.log(li);
+                console.log(strContent);
+            })
+            return reslve(strContent);
+        }).then(function(data) {
+            ulElment.innerHTML = data
+        })
+    </script>
+</body>
+
+</html>

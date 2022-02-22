@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" style="display: flex; flex-direction: column; width: 500px; margin: 0;">
+        <label for="">1st Person Name</label>
+        <input type="text" class="firt" name="" id="">
+        <label for="">1st Person Age</label>
+        <input type="text" class="firt" name="" id="">
+        <label for="">1st Person Addres</label>
+        <input type="text" class="firt" name="" id="">
+
+        <label for="">2st Person Name</label>
+        <input type="text" class="second" name="" id="">
+        <label for="">2st Person Age</label>
+        <input type="text" class="second" name="" id="">
+        <label for="">2st Person Address</label>
+        <input type="text" class="second" name="" id="">
+        <br>
+
+        <button>Show</button>
+    </form>
+    <div class="show" style="width: 500px; margin: 50px auto;"></div>
+
+    <script>
+        const elfirtperson = document.querySelectorAll('.firt');
+        const elsecond = document.querySelector('.second');
+        const elshow = document.querySelector('.show');
+        const elform = document.querySelector('.form');
+        const person = {
+            name: 'Khanh',
+            age: 20,
+            address: 'Viet Nam',
+            showprofile: function() {
+                const elinner = document.createElement('div');
+                elinner.innerHTML = `<hr><ul>
+                    <li>Name: ${this.name}</li>
+                    <li>Age: ${this.age}</li>
+                    <li>Address: ${this.address}</li>
+                    </ul><hr>`
+                elshow.appendChild(elinner);
+            }
+        }
+
+        function checkF() {
+            let rl = true;
+            elfirtperson.forEch(item => {
+                if (item.value == '') {
+                    rl = false;
+                }
+            });
+            elsecond.forEch(item => {
+                if (item.value == '') {
+                    rl = false;
+                }
+            });
+            return rl;
+        }
+        elform.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (checkF()) {
+                let fname = elfirtperson[0].value;
+                let fag = elfirtperson[1].value;
+                let faddress = elfirtperson[2].value;
+                let firt = {
+                    __proto__: person
+                }
+                let fname = elsecond[0].value;
+                let fag = elsecond[1].value;
+                let faddress = elsecond[2].value;
+                let secondd = {
+                    __proto__: person
+                }
+                firt.showprofile();
+                secondd.showprofile();
+                elfirtperson.forEach(item => {
+                    item.value = ''
+                });
+                elsecond.forEach(item => {
+                    item.value = ''
+                })
+            } else {
+                alert("Hãy nhập dữ liệu");
+            }
+        })
+        const p = new person('Khanh Duy Tran', 33, 'Viet Nam');
+    </script>
+</body>
+
+</html>

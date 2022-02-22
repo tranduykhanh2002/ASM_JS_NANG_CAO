@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Danh sách sinh viên</h1>
+    <ul id="dssv"></ul>
+    <script>
+        var url = "http://localhost:3000/sinhvien";
+        options = {
+            method: "GET"
+        }
+
+        fetch(url, options)
+            .then(function(response) {
+                // chuyển dữ liệu về json
+                return response.json();
+            })
+            .then(function(data_json) {
+                // hiển thị dữ liệu
+                console.log(data_json);
+
+
+
+                data_json.forEach(function(sv) {
+                    li = document.createElement('li');
+                    li.innerHTML = sv.hoten // gắn dữ liệu cho li
+                    document.querySelector('#dssv').appendChild(li) // thêm vào UL
+                    console.log(sv);
+                });
+
+            });
+    </script>
+</body>
+
+</html>

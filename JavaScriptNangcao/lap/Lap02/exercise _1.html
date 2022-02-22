@@ -1,0 +1,19 @@
+<label for="">String</label>
+<input type="text" name="" id="string">
+<br>
+<label for="">Number</label>
+<h2 id="target"></h2>
+<br>
+<button id="add">convert</button>
+<h4 id="target"></h4>
+<script>
+    var string = document.getElementById("string");
+    var out = document.querySelector("#target");
+    var add = document.getElementById("add");
+    add.addEventListener("click", function() {
+        var numberstr = string.value.length;
+        out.innerHTML = numberstr;
+        console.log(numberstr);
+
+    })
+</script>

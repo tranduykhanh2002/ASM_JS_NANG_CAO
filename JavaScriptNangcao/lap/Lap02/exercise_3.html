@@ -1,0 +1,20 @@
+<label for="">String</label>
+<input type="text" name="" id="string">
+<br>
+<br>
+<button id="add">convert</button>
+<h4 id="target"></h4>
+<script>
+    var string = document.querySelector("#string");
+    var add = document.getElementById("add");
+    add.onclick = () => {
+        let arr = string.value.split(' ');
+        for (let index = 1; index < arr.length; index++) {
+            temp = arr[index]
+            arr[index] = temp.replace(temp.charAt(0).toUpperCase())
+
+        }
+        string.value = arr.join('');
+        console.log(arr);
+    }
+</script>

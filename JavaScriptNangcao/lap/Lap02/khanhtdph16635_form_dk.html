@@ -1,0 +1,144 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<style>
+    body {
+        background-color: #525252;
+    }
+    
+    .centered-form {
+        margin-top: 60px;
+    }
+    
+    .centered-form .panel {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+    }
+</style>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2
+            col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Đăng ký thành viên</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Họ tên"> <span id="msg_name"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="name_account" id="name_account" class="form-control
+                                        input-sm" placeholder="Tên tài khoản"><span id="msg_account"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email"><span id="msg_email"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Số điện thoại"><span id="msg_phone"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="password" id="password" class="form-control
+                                        input-sm" placeholder="Mật khẩu"><span id="msg_password"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Xác nhận mật khẩu"><span id="msg_cf_password"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="message" id="message" class="form-control input-sm" placeholder="Nội
+                                dung">
+                        </div>
+
+                        <!-- <input type="button" name="button" value="Register" id="submit" class="btn btn-info btn-block"> -->
+                        <button class="btn btn-info btn-block" type="button">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    btn = document.querySelector('button');
+    btn.onclick = function() {
+        username = document.querySelector('input[name=name]').value;
+        msg_username = document.querySelector("#msg_name");
+
+        name_account = document.querySelector('input[name=name_account]').value;
+        msg_account = document.querySelector("#msg_account");
+
+        email = document.querySelector('input[name=email]').value;
+        msg_email = document.querySelector("#msg_email");
+
+        phone = document.querySelector('input[name=phone]').value;
+        msg_phone = document.querySelector("#msg_phone");
+
+        password = document.querySelector('input[name=password]').value;
+        console.log("mật khảu: " + password);
+        msg_password = document.querySelector("#msg_password");
+
+        cf_password = document.querySelector('input[name=password_confirmation]').value;
+        msg_cf_password = document.querySelector("#msg_cf_password");
+
+        var check_name = /^[a-zA-Z ]{5,100}$/;
+        if (check_name.test(username)) {
+            msg_name.innerHTML = 'OK';
+        } else {
+            msg_name.innerHTML = 'Fail'
+        }
+        var check_account = /^[a-zA-Z]{5,100}$/
+        if (check_account.test(name_account)) {
+            msg_account.innerHTML = 'OK';
+        } else {
+            msg_account.innerHTML = 'Fail'
+        }
+        var check_email = /^[a-zA-Z0-9@.]{5,100}$/
+        if (check_email.test(email)) {
+            msg_email.innerHTML = 'OK';
+        } else {
+            msg_email.innerHTML = 'Fail'
+        }
+        var check_phone = /^[0-9]{10}$/
+        if (check_phone.test(phone)) {
+            msg_phone.innerHTML = 'OK';
+        } else {
+            msg_phone.innerHTML = 'Fail'
+        }
+        var check_pass = /^[a-zA-Z0-9]{6,12}$/
+        console.log(check_pass.test(password))
+        if (check_pass.test(password)) {
+            msg_password.innerHTML = 'OK';
+        } else {
+            msg_password.innerHTML = 'Fail'
+        }
+        // var checkpwspace = /^[a-zA-Z0-9]{6,12}$/
+        // var check_cf_pw = password
+        // if (check_cf_pw == cf_password) {
+        //     msg_cf_password.innerHTML = 'OK';
+        // } else {
+        //     msg_cf_password.innerHTML = 'Fail';
+        // }
+
+    }
+</script>

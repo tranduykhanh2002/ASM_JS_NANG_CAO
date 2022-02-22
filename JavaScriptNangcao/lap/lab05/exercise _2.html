@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const thucday = () => {
+            return new Promise((reslove, reject) => {
+                console.log("Đã ngủ dậy");
+                reslove();
+            })
+        }
+        const danrang = () => {
+            return new Promise((reslove, reject) => {
+                console.log("Đang đánh răng");
+                setTimeout(() => {
+                    console.log("Đã đánh răng xong");
+                    reslove();
+                }, 2000);
+            })
+        }
+        const thayquanao = () => {
+            return new Promise((reslove, reject) => {
+                console.log("Đang thay quần áo");
+                setTimeout(() => {
+                    console.log("Đã thay quần áo");
+                    reslove();
+                }, 3000);
+            })
+        }
+        const dihoc = () => {
+            return new Promise((reslove, reject) => {
+                console.log("Đang đi học");
+                setTimeout(() => {
+                    console.log("Đã đến trường");
+                    reslove();
+                }, 3000);
+            })
+        }
+        thucday()
+            .then(() => danrang());
+        // .then(() => thayquanao());
+        // .then(() => dihoc();)
+    </script>
+</body>
+
+</html>

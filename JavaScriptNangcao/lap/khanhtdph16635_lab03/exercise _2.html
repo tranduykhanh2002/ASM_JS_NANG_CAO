@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Thông Tin SV</h1>
+    <p>Môn học <input type="text" class="sub-name"></p>
+    <p>Điểm <input type="text" class="point"></p>
+    <p><button onclick="add()">Add</button></p>
+    <div class="show">
+        <div class="name"></div>
+        <div class="age"></div>
+        <div class="address"></div>
+        <ul class="subjects"></ul>
+    </div>
+
+
+    <script>
+        let student = {
+            id: 'PH16635',
+            namefull: 'Khanh',
+            age: 20,
+            address: 'Ha Noi',
+            study_: 'JS Nang Cao',
+            subjects: [{
+                name: 'HTML',
+                point: 8,
+            }, {
+                name: 'JS',
+                point: 7,
+            }]
+        };
+        const elName = document.querySelector('.name');
+        const elage = document.querySelector('.age');
+        const eladdress = document.querySelector('.address');
+        const elsubject = document.querySelector('.subjects');
+        const inner = function(data) {
+            elName.innerText = data.namefull;
+            elage.innerText = data.age;
+            eladdress.innerText = data.address;
+            let subject = data.subjects.map(item => {
+                return `<li> ${item.name} - ${item.point} </li>`
+            });
+            elsubject.innerHTML = subject.join('');
+        }
+        inner(student);
+        const add = function() {
+            const subinput = document.querySelector('.sub-name').value;
+            const pointinput = document.querySelector('.point').value;
+            student.subjects.push({
+                name: subinput,
+                point: pointinput
+            });
+            inner(student);
+
+        }
+    </script>
+</body>
+
+</html>

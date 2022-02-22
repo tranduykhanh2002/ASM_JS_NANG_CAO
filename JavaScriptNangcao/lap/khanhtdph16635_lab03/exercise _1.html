@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+    <script>
+        const student = {
+            id: "PH16635",
+            name: "Nguyen Van A",
+            email: "anvph16635",
+            image: "avatar.jpg",
+            address: "Ha Noi",
+            subject: "JS Nang Cao",
+            score: 8,
+
+            getAvgScore: function() {
+                return this.score;
+            },
+            setAvgScore: function(input) {
+                this.score = input;
+                return this.score;
+            },
+            changeAddress: function(address) {
+                this.address = address;
+                return this.address;
+            }
+        }
+        console.log(student);
+        console.log(student.getAvgScore());
+        console.log(student.setAvgScore(3));
+        console.log(student);
+        console.log(student.changeAddress("Viet Nam"));
+    </script>
+</body>
+
+</html>

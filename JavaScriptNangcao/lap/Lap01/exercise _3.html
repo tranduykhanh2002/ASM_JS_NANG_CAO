@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="target"></ul>
+    <script>
+        var users = [{
+            id: 1,
+            name: "Nguyen Van A",
+            gender: "Nam"
+        }, {
+            id: 2,
+            name: "Hoang Van B",
+            gender: "Nam"
+        }, {
+            id: 3,
+            name: "Duong Van C",
+            gender: "Nam"
+        }, {
+            id: 4,
+            name: "Tran Van D",
+            gender: "Nam"
+        }, ];
+        var target = document.querySelector("#target");
+        var dsul = users.map(function(list, index, users) {
+            let dsl = '<li>' + list.id + '-' + list.name + '-' + list.gender + '</li>';
+
+            return dsl;
+        });
+        document.getElementById("target").innerHTML = dsul;
+        console.log(dsul);
+    </script>
+</body>
+
+</html>

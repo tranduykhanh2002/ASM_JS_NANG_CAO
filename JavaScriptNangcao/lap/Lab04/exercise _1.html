@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="weight" name="weight" placeholder="'Nhap Can Nang">
+    <input type="text" id="height" name="height" placeholder="Chieu Cao">
+    <button id="btn">Enter</button>
+    <div id="btn">Chi so NMI cua ban la: <span id="result"></span></div>
+    <script>
+        const w = document.getElementById("weight");
+        const h = document.getElementById("height");
+        const btn = document.getElementById("btn");
+
+        let result = document.getElementById("result");
+        btn.addEventListener("click", function() {
+            result.innerText = w.value / Math.pow(h.value, 2);
+        })
+    </script>
+</body>
+
+</html>

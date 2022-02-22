@@ -1,0 +1,48 @@
+<input type="text" id="input">
+<button type="button" id="check">Check</button>
+<button type="button" id="check_n">Check n</button>
+<br>
+<h2>Chuỗi đảo ngược:
+    <span id="output"></span>
+</h2>
+<h2>Kết quả chuỗi vừa nhập:
+    <span id="result"></span>
+</h2>
+<h2>Chuỗi vừa nhập:
+    <span id="yn"></span>
+</h2>
+<script>
+    var input = document.querySelector("#input");
+    var outputSpan = document.querySelector("#output");
+    var resultSpan = document.querySelector("#result");
+    var button = document.querySelector("#check");
+    var button_c = document.querySelector("#check_n");
+    var kq = document.querySelector("#yn");
+    var check_n = /n/;
+
+    button.onclick = function() {
+        var inputValue = input.value;
+        if (inputValue !== "") {
+            var str2Arr = inputValue.split("");
+            var reverseArr = str2Arr.reverse();
+            var outputValue = reverseArr.join("");
+            outputSpan.innerText = outputValue;
+            if (outputValue === inputValue) {
+                resultSpan.innerText = "Là chuỗi Pa...";
+            } else {
+                resultSpan.innerText = "Không phải là chuỗi Pa...";
+
+            }
+        }
+    }
+    button_c.onclick = function() {
+        var inputValue = input.value;
+        if (check_n.test(inputValue)) {
+            kq.innerText = "Có chữ n";
+        } else {
+            kq.innerText = "Không có chữ n";
+
+        }
+
+    }
+</script>
